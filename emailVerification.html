@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="login, pawndora, pet adoption" />
+  <meta name="description" content="Login to Pawndora to find your perfect pet or manage your pet posts." />
+  <meta name="author" content="Pawndora Team" />
+  <link rel="shortcut icon" href="images/pawnPink.png" type="image/x-icon">
+
+  <title>E-mail Verification - Pawndora</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- Header -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span>Pawndora</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Verification Section -->
+    <section class="verification_section">
+      <div class="container">
+        <div class="verification_box">
+          <h2>Email Verification</h2>
+          <p>
+            Please enter the verification code sent to your email address.
+          </p>
+          <form id="verificationForm">
+            <div class="form-group">
+              <input type="text" id="verificationCode" class="form-control" placeholder="Enter Verification Code" required />
+            </div>
+            <button type="submit" class="btn verify_btn">Verify</button>
+          </form>
+          <p>If you haven't received the email, you can resend it below:</p>
+          <form id="resendForm">
+            <button type="submit" class="btn resend_btn">Resend Email</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved by
+        <a href="#">Pawndora</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/emailVerification.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const verificationForm = document.getElementById("verificationForm");
+  const resendForm = document.getElementById("resendForm");
+
+  // Handle verification code submission
+  verificationForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const code = document.getElementById("verificationCode").value;
+
+    fetch("/verifyCode", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Email verified successfully!");
+          window.location.href = "index.html"; // Redirect to the homepage
+        } else {
+          alert("Invalid verification code. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Verification error:", error);
+        alert("An error occurred. Please try again.");
+      });
+  });
+
+  // Handle resend email
+  resendForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    fetch("/resendVerificationEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Verification email has been resent. Please check your inbox.");
+        } else {
+          alert("Failed to resend email: " + data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error resending email:", error);
+        alert("An error occurred. Please try again later.");
+      });
+  });
+});
+
+  </script>
+</body>
+
+</html>
+

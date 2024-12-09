@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="register, signup, pawndora, pet adoption" />
+  <meta name="description" content="Register on Pawndora to adopt pets or create posts for adoption." />
+  <meta name="author" content="Pawndora Team" />
+  <link rel="shortcut icon" href="images/pawnPink.png" type="image/x-icon">
+
+  <title>Register - Pawndora</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- Header section starts -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span class="brand_pawndora">
+            Pawndora
+          </span>
+        </a>
+      </nav>
+    </header>
+    <!-- Header section ends -->
+
+    <!-- Register Section -->
+    <section class="register_section layout_padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="register_form">
+              <h2>Create an Account</h2>
+              <form action="dashboard.html" method="post">
+                <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Create a password" required />
+                </div>
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm your password" required />
+                </div>
+                <button type="submit" class="btn register_btn" id="registerBtn">Register</button>
+              </form>
+              <p class="text-center mt-3">
+                Already have an account? <a href="login.html">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Register Section -->
+  </div>
+
+  <!-- info section-->
+  <section class="info_section layout_padding2-top">
+    <div class="social_container">
+      <div class="social_box">
+        <a href="">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="info_container">
+      <div class="container">
+        <div class="row">
+          <!-- About Us -->
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              ABOUT PAWNDORA
+            </h6>
+            <p>
+              Pawndora is dedicated to connecting pets with loving homes. Join us in our mission to create a better future for animals.
+            </p>
+          </div>
+          <!-- Newsletter -->
+          <div class="col-md-6 col-lg-3">
+            <div class="info_form">
+              <h5>
+                Subscribe to Our Newsletter
+              </h5>
+              <form action="#">
+                <input type="email" placeholder="Enter your email">
+                <button>
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- Need Help -->
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              NEED HELP?
+            </h6>
+            <p>
+              Contact us for support or any questions about adopting or posting a pet for adoption. We're here to help!
+            </p>
+          </div>
+          <!-- Contact Us -->
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              CONTACT US
+            </h6>
+            <div class="info_link-box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>123 Pawndora St., Pet City, USA</span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>+1 800-PAW-LOVE</span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>contact@pawndora.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved by
+          <a href="#">Pawndora</a>
+        </p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- end info section -->
+  
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+      const registerForm = document.getElementById("registerForm");
+
+      registerForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Sayfa yenilemeyi engelle
+
+        // Form verilerini al
+        const formData = new FormData(registerForm);
+        const payload = {};
+        formData.forEach((value, key) => (payload[key] = value));
+
+        // Backend API'sine istek gönder
+        fetch("/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              // Başarılı kayıt durumunda, token'ı ve kullanıcı adını sakla
+              localStorage.setItem("authToken", data.token); // JWT'yi sakla
+              localStorage.setItem("username", data.username); // Kullanıcı adını sakla
+              alert("Registration successful! Redirecting to home page...");
+              window.location.href = "index.html"; // Login olmuş sayfaya yönlendir
+            } else {
+              alert("Registration failed: " + data.message);
+            }
+          })
+          .catch((error) => {
+            console.error("Error during registration:", error);
+            alert("An error occurred. Please try again later.");
+          });
+      });
+    });
+  </script>
+</body>
+
+</html>

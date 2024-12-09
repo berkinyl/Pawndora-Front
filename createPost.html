@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="pet adoption, animal welfare, Pawndora, secure communication, pawn, Pandora" />
+  <meta name="description" content="Pawndora, your trusted and easy-to-use pet adoption platform." />
+  <meta name="author" content="Pawndora Team" />
+  <link rel="shortcut icon" href="images/pawnPink.png" type="image/x-icon">
+
+  <title>
+  Create Post - Pawndora
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="header_section">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <span>Pawndora</span>
+      </a>
+  
+      <!-- Mobile Menu Toggle -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""></span>
+      </button>
+  
+      <!-- Navigation Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adopt.html">Adopt</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="createPost.html">Create Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favorites.html">Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+  
+        <!-- User Options -->
+        <div class="user_option">
+          <a href="login.html" id="loginLink">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>Login</span>
+          </a>
+          <a href="messages.html">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>Messages</span>
+          </a>
+  
+          <!-- Search Bar -->
+          <div class="search-bar">
+            <form class="search-form" action="#" method="get">
+              <input type="text" name="search" placeholder="Search here..." class="search-input" />
+              <button type="submit" class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- end header section -->
+
+    <!-- Create Post Form -->
+    <section class="create_post_section">
+      <div class="container">
+        <h2>Create Post</h2>
+        <form id="createPostForm" class="create_post_form">
+          <div class="form-group">
+            <label for="petName">Pet Name:</label>
+            <input type="text" id="petName" name="petName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="petType">Type:</label>
+            <select id="petType" name="petType" class="form-control" required>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="petBreed">Breed:</label>
+            <input type="text" id="petBreed" name="petBreed" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="petGender">Gender:</label>
+            <select id="petGender" name="petGender" class="form-control" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="petAge">Age (Years):</label>
+            <input type="number" id="petAge" name="petAge" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="petHealth">Health Status:</label>
+            <input type="text" id="petHealth" name="petHealth" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="petDescription">Description:</label>
+            <textarea id="petDescription" name="petDescription" rows="4" class="form-control" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="petImage">Upload Image:</label>
+            <input type="file" id="petImage" name="petImage" class="form-control-file" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Post</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- end create post section-->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="js/createPost.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const createPostForm = document.getElementById("createPostForm");
+  
+    createPostForm.addEventListener("submit", (event) => {
+      event.preventDefault(); // Sayfa yenilemeyi engelle
+  
+      const formData = new FormData(createPostForm);
+  
+      // Backend API'ye form verilerini gönder
+      fetch("/createPost", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Post created successfully!");
+            window.location.href = "adopt.html"; // İlan oluşturulduktan sonra yönlendirme
+          } else {
+            alert("Failed to create post: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error creating post:", error);
+          alert("An error occurred. Please try again later.");
+        });
+    });
+  });
+  </script>
+
+</body>
+
+</html>
