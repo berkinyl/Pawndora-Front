@@ -986,18 +986,21 @@ body {
   background-color: #5aa2cc; /* Daha koyu mavi */
 }
 
-/* Responsive Ayarlar */
 @media (max-width: 768px) {
   .adoption_process .row {
-    flex-direction: column; /* Mobilde üst üste gelsin */
+    flex-direction: column; /* İçerikleri üst üste getir */
+    text-align: center; /* Tüm içerikleri ortala */
   }
+  
+  .adoption_process .icon-box {
+    margin-bottom: 15px; /* Görselin altında boşluk bırak */
+  }
+  
   .adoption_process .text-box {
-    text-align: center; /* Metin ortalanır */
-  }
-  .adoption_process .btn-group {
-    justify-content: center; /* Butonlar ortalanır */
+    text-align: center; /* Metni ortala */
   }
 }
+
 
 
 /* Genel Stil */
@@ -1258,9 +1261,7 @@ body {
 
 /* Overlay for background dimming */
 /* Filter Button */
-/* Filter Button */
-/* Filter Button */
-/* Filter Button */
+
 .filter_button {
   position: fixed;
   top: 150px; /* Varsayılan konumu */
@@ -2042,22 +2043,152 @@ body {
   transform: scale(1.05);
 }
 
-/* Resend Text */
+/* Resend Text Style */
 .resend_text {
-  margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #666;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .resend_text .resend_link {
   color: #ff8ba7;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .resend_text .resend_link:hover {
   text-decoration: underline;
 }
+
+/* Countdown Timer Style */
+#countdownTimer {
+  font-size: 1rem;
+  color: #888; /* Daha hafif bir renk */
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+/* Disabled Link */
+.resend_link.disabled {
+  color: #ccc; /* Pasif görünüm */
+  cursor: not-allowed; /* Tıklanamaz imleç */
+  text-decoration: none; /* Alt çizgi kaldır */
+}
+
+.error_bubble {
+  background-color: #ff8ba7;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  display: none; /* Initially hidden */
+  position: relative;
+}
+
+.error_bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ff8ba7;
+}
+
+/* Genel Arka Plan Rengi */
+body {
+  background-color: #f9f9ff; /* Tüm sayfa için aynı arka plan rengi */
+  margin: 0; /* Varsayılan margin kaldır */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Sayfa yüksekliğini tam ekran yap */
+}
+
+/* Favorites Section */
+.favorites_section {
+  flex: 1; /* Boş alanı doldur */
+  display: flex;
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala */
+  text-align: center; /* Metinleri ortala */
+  padding: 20px; /* İçerik için padding */
+}
+
+.favorites_title {
+  font-size: 2rem; /* Başlık için büyük boyut */
+  font-weight: bold; /* Kalın yazı */
+  color: #333; /* Koyu gri renk */
+  margin-bottom: 20px; /* Altına boşluk */
+  font-family: 'Roboto', sans-serif; /* Başlık için font */
+}
+
+.no_favorites {
+  font-size: 1.2rem; /* Metin boyutu */
+  color: #666; /* Nötr gri renk */
+  margin-top: 10px; /* Üst boşluk */
+  font-family: 'Roboto', sans-serif; /* Metin için font */
+}
+
+/* Default hidden mobile menu */
+#mobileNavbar {
+  display: none;
+}
+
+/* Show mobile menu toggle and hide desktop menu on smaller screens */
+@media (max-width: 992px) {
+  .navbar-toggler {
+    display: inline-block; /* Display hamburger button */
+  }
+
+  #mobileNavbar {
+    display: block; /* Show mobile menu */
+  }
+
+  /* Hide desktop navbar */
+  .navbar-collapse {
+    display: none !important;
+  }
+
+  .user_option {
+    display: none; /* Hide user options for mobile */
+  }
+}
+
+/* Hamburger Menu Styling */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  display: block;
+  margin: 6px auto;
+}
+
+.navbar-toggler-icon::after,
+.navbar-toggler-icon::before {
+  content: '';
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  display: block;
+  position: relative;
+  margin-top: 5px;
+}
+
+
 
 
 
