@@ -1944,53 +1944,93 @@ body {
   }
 }
 
-/* Email Verification Section */
+
 .verification_section {
-  padding: 140px ;
-  background-color: #f9f9ff;
-  text-align: center;
-  min-height: calc(50vh - 60px); /* Sayfa yüksekliği - Header */
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-sizing: border-box;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  align-items: center;
+  height: calc(100vh - 60px); /* Tam ekran yüksekliği - header */
+  padding: 0; /* Ekstra boşlukları kaldır */
+  background-color: #f9f9ff; /* Arkaplan rengi */
+  margin: auto;
 }
 
 .verification_box {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
+
+/* Headline Styles */
 .verification_box h2 {
-  font-size: 2rem;
-  color: #ff8ba7;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
   font-weight: bold;
 }
 
+/* Paragraph Styles */
 .verification_box p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
   line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Email Info */
+.email_info {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.email_info .change_email {
+  color: #ff8ba7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.email_info .change_email:hover {
+  text-decoration: underline;
+}
+
+/* Code Input Fields */
+.code_inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.verification_box .form-control {
-  padding: 10px;
-  border-radius: 5px;
+.verification_code {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
   border: 1px solid #ddd;
-  margin-bottom: 15px;
-  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
+.verification_code:focus {
+  border-color: #ff8ba7;
+  box-shadow: 0 0 5px rgba(255, 139, 167, 0.5);
+}
+
+/* Verify Button */
 .btn {
   background-color: #ff8ba7;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
@@ -1999,47 +2039,26 @@ body {
 }
 
 .btn:hover {
-  transform: scale(1.05); /* Hoverda sadece büyüme efekti */
+  transform: scale(1.05);
 }
 
-.footer_section {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+/* Resend Text */
+.resend_text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .verification_section {
-    padding: 80px 15px; /* Mobilde daha dar padding */
-    min-height: calc(70vh - 60px); /* Küçük ekranlarda yükseklik daha esnek */
-  }
-
-  .verification_box {
-    padding: 20px; /* İç paddingi daralt */
-  }
-
-  .verification_box h2 {
-    font-size: 1.8rem; /* Başlık boyutunu küçült */
-  }
-
-  .verification_box p {
-    font-size: 0.9rem; /* Paragraf boyutunu küçült */
-  }
-
-  .btn {
-    font-size: 0.9rem; /* Buton yazı boyutunu küçült */
-    padding: 10px 15px; /* Buton paddingini daralt */
-  }
-
-  .footer_section {
-    padding: 10px 0; /* Daha dar footer paddingi */
-  }
+.resend_text .resend_link {
+  color: #ff8ba7;
+  text-decoration: none;
+  font-weight: bold;
 }
+
+.resend_text .resend_link:hover {
+  text-decoration: underline;
+}
+
 
 
 
