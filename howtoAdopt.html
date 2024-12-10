@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <!--header section-->
+  <!--header section-->
   <header class="header_section">
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container">
@@ -92,67 +92,6 @@
         </div>
       </nav>
     </header>
-  
+    
   <!-- Header section ends -->
-
-  <section class="favorites_section">
-    <div class="container">
-      <h2>Your Favorites</h2>
-      <div id="favoritesContainer" class="favorites_container">
-        <!-- Favori ilanlar buraya yüklenecek -->
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved by
-        <a href="#">Pawndora</a>
-      </p>
-    </div>
-  </footer>
-</div>
-
-<script src="js/favorites.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const favoritesContainer = document.getElementById("favoritesContainer");
-
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  if (favorites.length === 0) {
-    favoritesContainer.innerHTML = "<p>No favorites yet!</p>";
-    return;
-  }
-
-  favorites.forEach((pet) => {
-    const petCard = document.createElement("div");
-    petCard.classList.add("pet_card");
-
-    petCard.innerHTML = `
-      <div class="pet_image">
-        <img src="${pet.image}" alt="${pet.name}">
-      </div>
-      <div class="pet_details">
-        <h3>${pet.name}</h3>
-        <button class="remove_btn" data-pet-id="${pet.id}">Remove</button>
-      </div>
-    `;
-
-    favoritesContainer.appendChild(petCard);
-  });
-
-  // Remove from favorites functionality
-  document.querySelectorAll(".remove_btn").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const petId = button.dataset.petId;
-      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-      favorites = favorites.filter((pet) => pet.id !== petId);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-      location.reload(); // Sayfayı yeniden yükle
-    });
-  });
-});
-
-</script>
+   
