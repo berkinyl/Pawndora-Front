@@ -337,13 +337,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
 /*end header section*/
 
 /* Slider Section */
@@ -609,15 +602,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-/* Carousel Buttons */
 /* Slider Oklarının Tasarımı */
 .slider_section .custom-arrows {
   position: absolute;
@@ -671,12 +655,11 @@ body {
   }
 }
 
-
  /* end slider section */
 /* Shop Section */
 .shop_section {
   padding: 50px 0;
-  background-color: #f9f9f9; /* Açık gri arka plan */
+  background-color: #f0f8ff; /* Açık gri arka plan */
 }
 
 .shop_section .heading_container {
@@ -700,6 +683,7 @@ body {
   grid-template-columns: repeat(3, 1fr); /* Her satırda 3 sütun */
   gap: 20px; /* Kartlar arasındaki boşluk */
 }
+/* Genel Ayarlar */
 
 .shop_section .box {
   background-color: #ffffff;
@@ -840,7 +824,7 @@ body {
 
 .saving_section {
   padding: 50px 0;
-  background-color: #f8f8f8; /* Hafif açık gri arka plan */
+  background-color: #f0f8ff; /* Hafif açık gri arka plan */
 }
 
 .saving_section .box {
@@ -974,10 +958,11 @@ body {
 
 
 /* Genel Stil */
-.adoption_process {
-  background-color: #f9f9ff; /* Hafif mavi arka plan */
-  padding: 60px 20px; /* Üst ve alt boşluk */
-  border-radius: 10px; /* Köşeleri yuvarlat */
+.adoption_process .box {
+  padding: 30px;
+  background-color: #f9f8f7; /* Açık mavi arka plan */
+  color: #ffffff;
+  border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
 }
 
@@ -1225,13 +1210,7 @@ body {
 
 
 
-.info_section .info_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px 0;
-  background-color: #f9f9f9;
-}
+
 
 .info_section .info_container .info_column {
   width: 25%;
@@ -1617,7 +1596,7 @@ body {
 
  .login_section {
   padding: 50px 0;
-  background-color: #f9f9ff; /* Hafif açık mavi arka plan */
+  background-color: #f0f8ff; /* Hafif açık mavi arka plan */
 }
 
 .login_form {
@@ -1671,7 +1650,7 @@ body {
 
 .register_section {
   padding: 50px 0;
-  background-color: #f9f9ff; /* Hafif açık mavi arka plan */
+  background-color: #f0f8ff; /* Hafif açık mavi arka plan */
 }
 
 .register_form {
@@ -1729,7 +1708,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9ff; /* Arka plan rengi */
+  background-color: #f0f8ff; /* Arka plan rengi */
   gap: 20px; /* İki kutu arasında boşluk */
 }
 
@@ -1924,89 +1903,54 @@ body {
   transform: scale(1.1);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+  /* Mobil cihazlar */
   .messages_section {
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px; /* Daha küçük ekranlarda boşluk */
+    padding: 15px 10px;
   }
 
-  .chat_list,
+  .chat_list {
+    height: 300px; /* Daha küçük yükseklik */
+    overflow-y: auto; /* Scroll etkin */
+  }
+
   .chat_box {
-    max-width: 100%;
-    height: auto;
+    height: auto; /* Esnek yükseklik */
+  }
+
+  .chat_header {
+    font-size: 16px; /* Header boyutunu küçült */
+    padding: 10px;
+  }
+
+  .chat_item {
+    padding: 10px; /* Sohbet öğelerinin padding'ini küçült */
+  }
+
+  .chat_info h6 {
+    font-size: 12px; /* İsimlerin boyutunu küçült */
+  }
+
+  .chat_info p {
+    font-size: 10px; /* Mesajların boyutunu küçült */
+  }
+
+  .chat_messages {
+    padding: 10px; /* Mesajlar alanında daha az padding */
+  }
+
+  .chat_input textarea {
+    font-size: 12px; /* Yazı boyutunu küçült */
+    padding: 8px;
+    margin-right: 10px;
+  }
+
+  .chat_input .send_btn {
+    width: 40px;
+    height: 40px; /* Gönder butonu küçültüldü */
   }
 }
 
-/* Create Post Section */
-.create_post_section {
-  padding: 50px 0;
-  background-color: #f9f9ff;
-}
-
-.create_post_section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.create_post_form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.create_post_form .form-group label {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #555;
-}
-
-.create_post_form .form-group input,
-.create_post_form .form-group select,
-.create_post_form .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 5px;
-  box-sizing: border-box;
-}
-
-.create_post_form .form-group input:focus,
-.create_post_form .form-group select:focus,
-.create_post_form .form-group textarea:focus {
-  border-color: #ff8ba7;
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 139, 167, 0.5);
-}
-
-.create_post_form .btn-primary {
-  background-color: #ff8ba7;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.create_post_form .btn-primary:hover {
-  background-color: #ff6f92;
-}
-
-.create_post_form .form-group input[type="file"] {
-  padding: 3px;
-  font-size: 1rem;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -2211,15 +2155,7 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  width: 100%;
-  position: relative; /* Normal akışta dursun */
-}
+
 
 /* Responsive Tasarım */
 @media (max-width: 768px) {
@@ -2276,6 +2212,165 @@ footer {
     font-size: 1rem; /* Daha küçük ekranlar için metin boyutu daha da küçült */
   }
 
+  .containerr {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.containerr h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #f9f9ff; /* Yumuşak bir mavi renk */
+  color: #34495e;
+}
+
+.containerr h3 {
+  font-size: 1.5em;
+  margin-top: 25px;
+  padding-bottom: 8px; /* Alt çizgi için yer bırakılır */
+  border-bottom: 2px solid #f9f9ff; /* Daha ince ve farklı bir ton mavi */
+  color: #34495e;
+}
+
+
+.containerr p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.containerr ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.containerr ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.containerr ul li:before {
+    position: absolute;
+    left: 0;
+    color: #5d9cec; /* Yumuşak bir mavi renk */
+    font-size: 1.5em;
+    line-height: 0.9em;
+}
+
+.containerr a {
+    color: #c3d4f5; /* Yumuşak mavi */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.containerr a:hover {
+    text-decoration: underline;
+}
+
+.containerr .highlight {
+    background-color: #9fd8e5; /* Hafif bir mavi arka plan */
+    padding: 20px;
+    border-left: 5px solid #109dbd; /* Yumuşak bir mavi renk */
+    margin: 25px 0;
+    border-radius: 5px;
+    color: #555;
+}
+
+.containerr .btn {
+    display: inline-block;
+    background-color: #ff8ba7; /* Yumuşak mavi */
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1em;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containerr .btn:hover {
+    background-color: #ff8ba7; /* Daha koyu bir mavi ton */
+}
+
+/* Create Post Section */
+.create_post_section {
+  padding: 50px 0;
+  background-color: #f0f8ff;
+}
+
+.create_post_section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.create_post_form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create_post_form .form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.create_post_form .form-group input,
+.create_post_form .form-group select,
+.create_post_form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.create_post_form .form-group input:focus,
+.create_post_form .form-group select:focus,
+.create_post_form .form-group textarea:focus {
+  border-color: #ff8ba7;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 139, 167, 0.5);
+}
+
+.create_post_form .btn-primary {
+  background-color: #ff8ba7;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create_post_form .btn-primary:hover {
+  background-color: #ff6f92;
+}
+
+.create_post_form .form-group input[type="file"] {
+  padding: 3px;
+  font-size: 1rem;
+}
 
 
 

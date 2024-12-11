@@ -29,13 +29,19 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+
+
+
+
+  </style>
 </head>
 
 <body>
   <!--header section-->
   <header class="header_section">
     <header class="header_section">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
+      <nav class="navbar navbar-expand-lg custom_nav-containerr">
         <!-- Logo -->
         <a class="navbar-brand" href="index.html">
           <span>Pawndora</span>
@@ -94,4 +100,84 @@
     </header>
     
   <!-- Header section ends -->
+  <div class="containerr">
+    <h2>Step 1: Understand the Commitment</h2>
+    <p>Before adopting, it’s essential to understand the responsibility involved. Pets require time, effort, and financial resources. From daily walks and feeding to regular vet visits and emotional care, adopting a pet is a long-term commitment. Think about your lifestyle, home environment, and the type of pet that would best suit your situation.</p>
+
+    <h2>Step 2: Research and Choose the Right Pet</h2>
+    <p>Every pet has unique needs and personalities. Dogs, cats, rabbits, birds, and other animals all require different levels of care. For instance:</p>
+    <ul>
+        <li><strong>Dogs:</strong> Great companions for active individuals or families who enjoy outdoor activities.</li>
+        <li><strong>Cats:</strong> Independent and perfect for quieter households.</li>
+        <li><strong>Small animals (like birds):</strong> Low-maintenance and ideal for small spaces.</li>
+    </ul>
+
+    <div class="highlight">
+        <p><strong>Tip:</strong> Visit adoption websites or local shelters to learn about available pets. Consider age, size, temperament, and energy levels to find a pet that matches your lifestyle.</p>
+    </div>
+
+    <h2>Step 3: Find a Reputable Shelter or Rescue</h2>
+    <p>Reputable shelters and rescues prioritize the health and well-being of their animals. Look for organizations with transparent adoption processes, proper veterinary care, and policies that ensure the pets are placed in suitable homes.</p>
+
+    <h2>Step 4: Prepare Your Home</h2>
+    <p>Bringing a pet into your home requires preparation. Create a safe and comfortable space for your new companion by:</p>
+    <ul>
+        <li>Pet-proofing your home (removing hazards like toxic plants, sharp objects, and electrical cords).</li>
+        <li>Purchasing essential supplies like food, water bowls, bedding, toys, and grooming tools.</li>
+        <li>Setting up a designated area where the pet can adjust to their new environment.</li>
+    </ul>
+
+    <h2>Step 5: Visit the Shelter and Meet the Pet</h2>
+    <p>Once you’ve narrowed down your choices, visit the shelter to meet the pet. Spend time interacting with them to ensure they are a good fit. Pay attention to their behavior, energy levels, and comfort around people. Ask the shelter staff about their history, personality, and medical needs.</p>
+
+    <h2>Step 6: Complete the Adoption Process</h2>
+    <p>The adoption process typically involves:</p>
+    <ul>
+        <li>Filling out an application form.</li>
+        <li>Providing proof of identification and residence.</li>
+        <li>Paying a small adoption fee (used to cover the pet's medical expenses and care).</li>
+        <li>Agreeing to a home check or post-adoption follow-up in some cases.</li>
+    </ul>
+
+    <h2>Step 7: Bring Your Pet Home</h2>
+    <p>Congratulations, you’re now a pet parent! The first few days are crucial for helping your pet adjust. Allow them time to explore their new surroundings and establish trust. Stick to a routine for feeding, walking, and playtime to help them feel secure.</p>
+
+    <h2>Step 8: Provide Ongoing Care and Love</h2>
+    <p>Owning a pet is an ongoing journey. Regular vet visits, a balanced diet, exercise, and love are essential to their well-being. Enroll in obedience classes or training sessions if needed, especially for dogs. This helps strengthen the bond and ensures your pet is well-behaved.</p>
+
+    <a href="/adopt.html" class="btn">Start Your Adoption Journey</a>
+
+
+</div>
+<footer class="footer_section">
+  <div class="container">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved by
+      <a href="#">Pawndora</a>
+    </p>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navbarToggler = document.querySelector(".navbar-toggler");
+  const navbarMenu = document.querySelector("#navbarSupportedContent");
+
+  // Kontrol: Gerekli öğeler var mı?
+  if (!navbarToggler || !navbarMenu) {
+    console.error("Required elements are missing in the DOM.");
+    return;
+  }
+
+  // Tıklama olayını ekle
+  navbarToggler.addEventListener("click", () => {
+    navbarMenu.classList.toggle("show"); // Menü aç/kapa
+    navbarToggler.setAttribute(
+      "aria-expanded",
+      navbarMenu.classList.contains("show")
+    );
+  });
+});
+</script>
+</body>
+</html>
    
