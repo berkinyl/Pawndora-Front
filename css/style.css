@@ -2151,7 +2151,7 @@ html, body {
   }
 
   .favorites_section {
-    padding: 15px; /* Mobil için daha az padding */
+    padding: 100px; /* Mobil için daha az padding */
   }
 }
 
@@ -2168,7 +2168,7 @@ html, body {
     left: 0;
     width: 100%;
     padding: 15px;
-    z-index: 1000; /* Ensure the menu appears above the slider */
+    z-index: 2000; /* Ensure the menu appears above the slider */
     display: none;
     transition: all 0.3s ease-in-out;
   }

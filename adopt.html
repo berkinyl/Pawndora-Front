@@ -33,62 +33,64 @@
 
 <body>
   <header class="header_section">
-    <nav class="navbar navbar-expand-lg custom_nav-container">
-      <!-- Logo -->
-      <a class="navbar-brand" href="index.html">
-        <span>Pawndora</span>
-      </a>
-  
-      <!-- Mobile Menu Toggle -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class=""></span>
-      </button>
-  
-      <!-- Navigation Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="adopt.html">Adopt</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="createPost.html">Create Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="favorites.html">Favorites</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-        </ul>
-  
-        <!-- User Options -->
-        <div class="user_option">
-          <a href="login.html" id="loginLink">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span>Login</span>
-          </a>
-          <a href="messages.html">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span>Messages</span>
-          </a>
-  
-          <!-- Search Bar -->
-          <div class="search-bar">
-            <form class="search-form" action="#" method="get">
-              <input type="text" name="search" placeholder="Search here..." class="search-input" />
-              <button type="submit" class="search-btn">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <span>Pawndora</span>
+        </a>
+    
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+    
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="adopt.html">Adopt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="createPost.html">Create Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favorites.html">Favorites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+    
+          <!-- User Options -->
+          <div class="user_option">
+            <a href="login.html" id="loginLink">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>Login</span>
+            </a>
+            <a href="messages.html">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>Messages</span>
+            </a>
+    
+            <!-- Search Bar -->
+            <div class="search-bar">
+              <form class="search-form" action="#" method="get">
+                <input type="text" name="search" placeholder="Search here..." class="search-input" />
+                <button type="submit" class="search-btn">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  </div>
+      </nav>
+    </header>
   <!-- end hero area -->
 
   <!-- Animal Section -->
@@ -343,6 +345,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <script src="js/custom.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarMenu = document.querySelector("#navbarSupportedContent");
+
+    // Kontrol: Gerekli öğeler var mı?
+    if (!navbarToggler || !navbarMenu) {
+      console.error("Required elements are missing in the DOM.");
+      return;
+    }
+
+    // Tıklama olayını ekle
+    navbarToggler.addEventListener("click", () => {
+      navbarMenu.classList.toggle("show"); // Menü aç/kapa
+      navbarToggler.setAttribute(
+        "aria-expanded",
+        navbarMenu.classList.contains("show")
+      );
+    });
+  });
+</script>
   <script>
  function toggleFilterPanel() {
   const filterPanel = document.getElementById("filterPanel");

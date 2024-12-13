@@ -156,3 +156,28 @@
 });
 
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarMenu = document.querySelector("#navbarSupportedContent");
+
+    // Kontrol: Gerekli öğeler var mı?
+    if (!navbarToggler || !navbarMenu) {
+      console.error("Required elements are missing in the DOM.");
+      return;
+    }
+
+    // Tıklama olayını ekle
+    navbarToggler.addEventListener("click", () => {
+      navbarMenu.classList.toggle("show"); // Menü aç/kapa
+      navbarToggler.setAttribute(
+        "aria-expanded",
+        navbarMenu.classList.contains("show")
+      );
+    });
+  });
+</script>
+  
+</body>
+
+</html>
