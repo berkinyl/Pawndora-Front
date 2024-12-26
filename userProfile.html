@@ -60,13 +60,18 @@
     
           <!-- User Options -->
           <div class="user_option">
-            <a href="login.html" id="loginLink">
+            <a href="userProfile.html" id="loginLink">
               <i class="fa fa-user" aria-hidden="true"></i>
-              <span>Login</span>
+              <span>Profile</span>
             </a>
             <a href="messages.html">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>Messages</span>
+            </a>
+            <!-- Logout Button -->
+            <a href="logout.html" id="logoutButton" class="logout_btn">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <span>Logout</span>
             </a>
     
             <!-- Search Bar -->
@@ -145,6 +150,27 @@
     }
   });
 </script>
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarMenu = document.querySelector("#navbarSupportedContent");
+
+    // Kontrol: Gerekli öğeler var mı?
+    if (!navbarToggler || !navbarMenu) {
+      console.error("Required elements are missing in the DOM.");
+      return;
+    }
+
+    // Tıklama olayını ekle
+    navbarToggler.addEventListener("click", () => {
+      navbarMenu.classList.toggle("show"); // Menü aç/kapa
+      navbarToggler.setAttribute(
+        "aria-expanded",
+        navbarMenu.classList.contains("show")
+      );
+    });
+  });
+</script>
 <style>
   /* Genel Ayarlar */
 body {
@@ -184,7 +210,6 @@ h1 {
   flex-direction: column;
   gap: 30px;
 }
-
 
 /* İletişim Bilgileri */
 .profile_info {
@@ -265,6 +290,23 @@ h1 {
   background-color: #ff6f92;
 }
 
+.logout_btn {
+  color: #fff;
+  background-color: #ff6f92;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout_btn:hover {
+  background-color: #ff6f92;
+}
+
 /* Mobil Düzenlemeler */
 @media (max-width: 768px) {
   .container {
@@ -291,5 +333,3 @@ h1 {
 </body>
 
 </html>
-
-
